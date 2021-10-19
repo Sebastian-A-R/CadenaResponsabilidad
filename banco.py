@@ -6,13 +6,13 @@ from leaderteamejecutivo import LeaderTeamEjecutivo
 
 class Banco(IAprobador):
 
-    
-    next1 = IAprobador
+    def __init__(self):
+        self.next = IAprobador
 
 
     def getNext(self):
 
-        return next
+        return self.next
 
     
     def solicitudPrestamo(self,monto):
@@ -29,10 +29,8 @@ class Banco(IAprobador):
         director = Director()
         gerente.setNext(director)
 
-        next = IAprobador
-
-        next.solicitudPrestamo(monto)
+        self.next.solicitudPrestamo(monto)
 
 
     def setNext(self,aprobador):
-        next=aprobador
+        self.next=aprobador
